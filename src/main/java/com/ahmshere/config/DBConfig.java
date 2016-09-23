@@ -30,7 +30,7 @@ public class DBConfig {
     @Resource
     private Environment env; // s ego pomoshu mozno poluchat dostup k property files.
 
-    //
+    //pokazivaem otobrazenie tables. avto sozdanie tablic
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -54,7 +54,7 @@ public class DBConfig {
 
     }
 
-    @Bean //
+    @Bean
     public DataSource datasource(){
         BasicDataSource ds = new BasicDataSource();
         ds.setUrl(env.getRequiredProperty("db.url")); //govoru chto danniy property obyazatelen
