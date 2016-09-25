@@ -14,15 +14,15 @@ public class Instructor {
     @GeneratedValue(generator = "increment")
             @GenericGenerator(name = "increment", strategy = "increment")
     int id;
-    /*@ElementCollection    //(fetch = FetchType.EAGER)
+   /* @ElementCollection
     Set<String> phone;*/
 
-    /*@OneToMany(mappedBy="instruct",fetch = FetchType.EAGER,orphanRemoval=true)
+    @OneToMany(mappedBy="instruct",fetch = FetchType.EAGER,orphanRemoval=true)
     List<Schedule> schedItems;
     String drivingSchool;
-    @ElementCollection
-    List<String> workingDays;
-    @ElementCollection
+    /*@ElementCollection
+    List<String> workingDays;*/
+    /*@ElementCollection
     List<String> workingHours;*/
     @Column(name = "name", nullable = false, length = 30)
     String name;
@@ -36,20 +36,8 @@ public class Instructor {
     String typeVehicle;
     String transmission;
 
-    public Instructor(String name, String email, String pricePerHour, String url, Address address, String typeVehicle, String transmission) {
-        this.name = name;
-        this.email = email;
-        this.pricePerHour = pricePerHour;
-        this.url = url;
-
-
-        this.address = address;
-        this.typeVehicle = typeVehicle;
-        this.transmission = transmission;
-    }
-
-    public Instructor(String name, String email, Set<String> phone, String sex, Address address, String typeVehicle,
-                      String transmission) {
+    public Instructor(String name, String email, String sex,
+                      Address address, String typeVehicle, String transmission) {
         super();
         this.name = name;
         this.email = email;
@@ -60,7 +48,7 @@ public class Instructor {
         this.transmission = transmission;
     }
     public Instructor() {
-
+        super();
     }
 
     public int getId() {
@@ -78,10 +66,16 @@ public class Instructor {
     public void setEmail(String email) {
         this.email = email;
     }
- /*   public Set<String> getPhone() {
-        return phone;
+    /*public String getPassword() {
+        return password;
     }
-    public void setPhone(Set<String> phone) {
+    public void setPassword(String password) {
+        this.password = password;
+    }*/
+   /* public Set<String> getPhone() {
+        return phone;
+    }*/
+   /* public void setPhone(Set<String> phone) {
         this.phone = phone;
     }*/
     public Address getAddress() {
@@ -105,7 +99,7 @@ public class Instructor {
     public String getSex() {
         return sex;
     }
- /*   public void setSchedule(List<Schedule> schedItems) {
+    public void setSchedule(List<Schedule> schedItems) {
         this.schedItems = schedItems;
     }
     public List<Schedule> getSchedule() {
@@ -117,13 +111,13 @@ public class Instructor {
     public void setDrivingSchool(String drivingSchool) {
         this.drivingSchool = drivingSchool;
     }
-    public List<String> getWorkingDays() {
+   /* public List<String> getWorkingDays() {
         return workingDays;
     }
     public void setWorkingDays(List<String> workingDays) {
         this.workingDays = workingDays;
-    }
-    public List<String> getWorkingHours() {
+    }*/
+    /*public List<String> getWorkingHours() {
         return workingHours;
     }
     public void setWorkingHours(List<String> workingHours) {
@@ -144,11 +138,8 @@ public class Instructor {
 
     @Override
     public String toString() {
-        return "Instructor [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + "phone" + ", sex=" + sex
-                + ", address=" + address + ", typeVehicle=" + typeVehicle + ", transmission=" + transmission + "]";
+        return "Instructor [id=" + id + ", name=" + name + ", email=" + email + ", sex=" + sex + ", address=" + address
+                + ", drivingSchool=" + drivingSchool + ", pricePerHour=" + pricePerHour + "]";
     }
 
-
 }
-
-
