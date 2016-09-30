@@ -17,14 +17,14 @@ public class DriverController {
     @RequestMapping(value = "/drivers", method = RequestMethod.GET)
     @ResponseBody //govorim, ctho vvide responsa hotim vernut stroku
     public List<Instructor> getAllDrivers(){
-        System.out.println("My error**************");
+        System.out.println("Get all instructors**************");
         List<Instructor> list = instructorRepository.findAll();
         return list;
     }
     @RequestMapping(value = "/drivers/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Instructor getDriver(@PathVariable int id){
-        System.out.println("My error Id**************");
+        System.out.println("Get instructor by id**************");
         return instructorRepository.findOne(id);
 
     }
